@@ -1,80 +1,142 @@
 FORMAT: 1A
 HOST: http://polls.apiblueprint.org/
-
 # Motiva
 
-Polls is a simple API allowing consumers to view polls and vote in them.
+Descrição da API do Motiva
+# Group User
+Ações relacionadas ao usuário
+## Dados do Usuário [/user]
+### Get User [GET]
 
-## Questions Collection [/questions]
-
-### List All Questions [GET]
-
-+ Response 200 (application/json)
-
-        [
-            {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 2048
-                    }, {
-                        "choice": "Python",
-                        "votes": 1024
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 512
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 256
-                    }
-                ]
-            }
-        ]
-
-### Create a New Question [POST]
-
-You may create your own question using this action. It takes a JSON
-object containing a question and a collection of answers in the
-form of choices.
+Solicita os dados do usuário
 
 + Request (application/json)
-
-        {
-            "question": "Favourite programming language?",
-            "choices": [
-                "Swift",
-                "Python",
-                "Objective-C",
-                "Ruby"
-            ]
-        }
+    + Headers
+            
+            Authorization: user_key_auth
 
 + Response 201 (application/json)
-
-    + Headers
-
-            Location: /questions/2
 
     + Body
 
             {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
+                "status": "SUCCESS",
+                "result": 
+                {
+                    "name": "string",
+                    "description": "string",
+                    "username": "string",
+                    "avatar": "string",
+                    "email": "string",
+                    "experience": "number",
+                    "facebook": "string",
+                    "github": "string",
+                    "linkedin": "string",
+                    "level": 
                     {
-                        "choice": "Swift",
-                        "votes": 0
-                    }, {
-                        "choice": "Python",
-                        "votes": 0
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 0
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 0
-                    }
-                ]
+                        "name": "Amador",
+                        "completetion": 57,
+                        "nextLevelName":"Iniciante"
+                    },
+                    "rewards": 
+                    [
+                        {
+                            "icon": "https://source.unsplash.com/random/80x80",
+                            "name": "Coração de ouro",
+                            "description": "bla bla bla wiskas sache"
+                        }, 
+                        {
+                            "icon": "https://source.unsplash.com/random/80x80",
+                            "name": "Coração de prata",
+                            "description": "bla bla bla wiskas sache"
+                        }, 
+                        {
+                            "icon": "https://source.unsplash.com/random/80x80",
+                            "name": "Coração de bronze",
+                            "description": "bla bla bla wiskas sache"
+                        }, 
+                        {
+                            "icon": "https://source.unsplash.com/random/80x80",
+                            "name": "Na direção certa",
+                            "description": "bla bla bla wiskas sache"
+                        }
+                    ],
+                    "interests": 
+                    [
+                        {
+                            "name": "Swift",
+                            "id": 23
+                        }, 
+                        {
+                            "name": "Python",
+                            "id": 34
+                        }, 
+                        {
+                            "name": "Objective-C",
+                            "id": 65
+                        }, 
+                        {
+                            "name": "Ruby",
+                            "id": 2
+                        }
+                    ]
+                }
+            }
+# Group Topics
+Ações relacionadas aos topicos
+## Artigos de um tópico [/tag/{id}/articles?{limit}]
+### Get Articles [GET]
+
+Solicita os dados do usuário
+
++ Parameters
+    + id: 2 (required, Number) - Id of tag.
+    + limit: 4 (optional, Number) - Limit number of articles
+        + Default: 4
+
++ Request (application/json)
+    + Headers
+            Authorization: user_key_auth (required, String) - Key authorization
+
++ Response 201 (application/json)
+
+    + Body
+
+            {
+                "status": "SUCCESS",
+                "result": 
+                {
+                    [
+                        "title": "Titulo do Artigo 2",
+                        "subtitle": "Esse é um subtitulo",
+                        "content": "Aqui vem o texto escrito pelo autor",
+                        "publishDate": 1519495297000,
+                        "editedDate": 1519495297000,
+                        "ownerName": "Usuario de teste"
+                    ],
+                    [
+                        "title": "Titulo do Artigo 2",
+                        "subtitle": "Esse é um subtitulo",
+                        "content": "Aqui vem o texto escrito pelo autor",
+                        "publishDate": 1519495297000,
+                        "editedDate": 1519495297000,
+                        "ownerName": "Usuario de teste"
+                    ],
+                    [
+                        "title": "Titulo do Artigo 3",
+                        "subtitle": "Esse é um subtitulo",
+                        "content": "Aqui vem o texto escrito pelo autor",
+                        "publishDate": 1519495297000,
+                        "editedDate": 1519495297000,
+                        "ownerName": "Usuario de teste 2"
+                    ],
+                    [
+                        "title": "Titulo do Artigo 4",
+                        "subtitle": "Esse é um subtitulo",
+                        "content": "Aqui vem o texto escrito pelo autor",
+                        "publishDate": 1519495297000,
+                        "editedDate": 1519495297000,
+                        "ownerName": "Usuario de teste 4"
+                    ],
+                }
             }
