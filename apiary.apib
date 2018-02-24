@@ -84,7 +84,7 @@ Solicita os dados do usuário
             }
 # Group Topics
 Ações relacionadas aos topicos
-## Artigos de um tópico [/tag/{id}/articles?{limit}]
+## Artigos de um tópico [/tag/{id}/articles?limit={limit}]
 ### Get Articles [GET]
 
 Solicita os dados do usuário
@@ -96,6 +96,7 @@ Solicita os dados do usuário
 
 + Request (application/json)
     + Headers
+    
             Authorization: user_key_auth (required, String) - Key authorization
 
 + Response 201 (application/json)
