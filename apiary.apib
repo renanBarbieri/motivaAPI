@@ -13,9 +13,9 @@ Solicita os dados do usuário
 + Request (application/json)
     + Headers
             
-            Authorization: user_key_auth
+            Authorization: user_key_auth (required, String) - Key authorization
 
-+ Response 201 (application/json)
++ Response 200 (application/json)
 
     + Body
 
@@ -34,28 +34,32 @@ Solicita os dados do usuário
                     "linkedin": "string",
                     "level": 
                     {
-                        "name": "Amador",
-                        "completetion": 57,
+                        "name": "Profissional",
+                        "completetion": 90,
                         "nextLevelName":"Iniciante"
                     },
                     "rewards": 
                     [
                         {
+                            "id": 20,
                             "icon": "https://source.unsplash.com/random/80x80",
                             "name": "Coração de ouro",
                             "description": "bla bla bla wiskas sache"
                         }, 
                         {
+                            "id": 30,
                             "icon": "https://source.unsplash.com/random/80x80",
                             "name": "Coração de prata",
                             "description": "bla bla bla wiskas sache"
                         }, 
                         {
+                            "id": 32,
                             "icon": "https://source.unsplash.com/random/80x80",
                             "name": "Coração de bronze",
                             "description": "bla bla bla wiskas sache"
                         }, 
                         {
+                            "id": 18,
                             "icon": "https://source.unsplash.com/random/80x80",
                             "name": "Na direção certa",
                             "description": "bla bla bla wiskas sache"
@@ -84,10 +88,10 @@ Solicita os dados do usuário
             }
 # Group Topics
 Ações relacionadas aos topicos
-## Artigos de um tópico [/tag/{id}/articles?limit={limit}]
-### Get Articles [GET]
+## Posts de um tópico [/tag/{id}/posts?limit={limit}]
+### Get Posts [GET]
 
-Solicita os dados do usuário
+Solicita os posts de uma tag
 
 + Parameters
     + id: 2 (required, Number) - Id of tag.
@@ -99,45 +103,71 @@ Solicita os dados do usuário
     
             Authorization: user_key_auth (required, String) - Key authorization
 
-+ Response 201 (application/json)
++ Response 200 (application/json)
 
     + Body
 
             {
                 "status": "SUCCESS",
                 "result": 
-                {
-                    [
+                [
+                    {
+                        "title": "Titulo do Artigo 0",
+                        "subtitle": "Esse é um subtitulo",
+                        "content": "Aqui vem o texto escrito pelo autor",
+                        "publishDate": 1519495297000,
+                        "editedDate": 1519495297000,
+                        "ownerName": "Usuario de teste"
+                    },
+                    {
                         "title": "Titulo do Artigo 2",
                         "subtitle": "Esse é um subtitulo",
                         "content": "Aqui vem o texto escrito pelo autor",
                         "publishDate": 1519495297000,
                         "editedDate": 1519495297000,
                         "ownerName": "Usuario de teste"
-                    ],
-                    [
-                        "title": "Titulo do Artigo 2",
-                        "subtitle": "Esse é um subtitulo",
-                        "content": "Aqui vem o texto escrito pelo autor",
-                        "publishDate": 1519495297000,
-                        "editedDate": 1519495297000,
-                        "ownerName": "Usuario de teste"
-                    ],
-                    [
+                    },
+                    {
                         "title": "Titulo do Artigo 3",
                         "subtitle": "Esse é um subtitulo",
                         "content": "Aqui vem o texto escrito pelo autor",
                         "publishDate": 1519495297000,
                         "editedDate": 1519495297000,
                         "ownerName": "Usuario de teste 2"
-                    ],
-                    [
+                    },
+                    {
                         "title": "Titulo do Artigo 4",
                         "subtitle": "Esse é um subtitulo",
                         "content": "Aqui vem o texto escrito pelo autor",
                         "publishDate": 1519495297000,
                         "editedDate": 1519495297000,
                         "ownerName": "Usuario de teste 4"
-                    ],
-                }
+                    }
+                ]
+            }
+            
+# Group Tools
+Ações relacionadas a ferramentas
+## Pesquisa [/search?q={query}&limit={limit}]
+### Get Result [GET]
++ Parameters
+    + query: "teleprocessamento" (required, String) - Query for search.
+    + limit: 4 (optional, Number) - Limit number of result. -1 is unlimited
+        + Default: 10
+
++ Request (application/json)
+    + Headers
+    
+            Authorization: user_key_auth (required, String) - Key authorization
+            
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "status": "SUCCESS",
+                "result": 
+                [
+                    
+                ]
             }
