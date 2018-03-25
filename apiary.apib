@@ -5,6 +5,28 @@ HOST: http://polls.apiblueprint.org/
 Descrição da API do Motiva
 # Group User
 Ações relacionadas ao usuário
+
+## Authorization [/auth]
+### Get AuthKey [GET]
+Solicita os dados do usuário
+
++ Request (application/json)
+    + Headers
+    
+            Authorization: user_credentials (required, String) - Base64 with username and password: Base64(username:password)
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "status": "SUCCESS",
+                "result": 
+                {
+                    "authkey": "ZXN0ZVVzdcOhcmlvQWdvcmFFc3RhQXV0ZW50aWNhZG9Db3JyZXRhbWVudGU=",
+                }
+            }
+
 ## Dados do Usuário [/user]
 ### Get User [GET]
 
@@ -60,6 +82,18 @@ Solicita os dados do usuário
                         }, 
                         {
                             "id": 18,
+                            "icon": "https://source.unsplash.com/random/80x80",
+                            "name": "Na direção certa",
+                            "description": "bla bla bla wiskas sache"
+                        }, 
+                        {
+                            "id": 78,
+                            "icon": "https://source.unsplash.com/random/80x80",
+                            "name": "Reta Final",
+                            "description": "bla bla bla wiskas sache"
+                        }, 
+                        {
+                            "id": 56,
                             "icon": "https://source.unsplash.com/random/80x80",
                             "name": "Na direção certa",
                             "description": "bla bla bla wiskas sache"
