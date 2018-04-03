@@ -3,6 +3,28 @@ HOST: http://polls.apiblueprint.org/
 # Motiva
 
 Descrição da API do Motiva
+
+## Login [/login]
+### Login [POST]
+Realiza login através de nome de usuário e senha
+
++ Request (application/json)
+  + Parameters
+      + username: (required, String) - Username of a user.
+      + password: (required, String) - Password of a user.
+
++ Response 200 (application/json)
+    + Body
+            {
+                "status": true,
+                "data": {
+                    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9..."
+                    "username": "lcleite",
+                    "user_id": 1,
+                    "active": true
+                }
+            }
+
 # Group User
 Ações relacionadas ao usuário
 
