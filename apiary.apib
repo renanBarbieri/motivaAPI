@@ -6,7 +6,7 @@ Descrição da API do Motiva
 # Group User
 Ações relacionadas ao usuário
 
-## Authorization [/auth]
+## Authorization [/user/auth]
 ### Get AuthKey [GET]
 Solicita os dados do usuário
 
@@ -24,27 +24,6 @@ Solicita os dados do usuário
                 "result": 
                 {
                     "authkey": "ZXN0ZVVzdcOhcmlvQWdvcmFFc3RhQXV0ZW50aWNhZG9Db3JyZXRhbWVudGU=",
-                }
-            }
-
-## Dados do Usuário [/user]
-### Get User [GET]
-
-Solicita os dados do usuário
-
-+ Request (application/json)
-    + Headers
-            
-            Authorization: user_key_auth (required, String) - Key authorization
-
-+ Response 200 (application/json)
-
-    + Body
-
-            {
-                "status": "SUCCESS",
-                "result": 
-                {
                     "name": "Renan",
                     "description": "string",
                     "username": "renanhb",
@@ -100,6 +79,99 @@ Solicita os dados do usuário
                         }
                     ],
                     "tags": 
+                    [
+                        {
+                            "name": "Swift",
+                            "id": 23
+                        }, 
+                        {
+                            "name": "Python",
+                            "id": 34
+                        }, 
+                        {
+                            "name": "Objective-C",
+                            "id": 65
+                        }, 
+                        {
+                            "name": "Ruby",
+                            "id": 2
+                        }
+                    ]
+                }
+            }
+
+## Dados do Usuário [/user]
+### Get User [GET]
+
+Solicita os dados do perfil de um usuário
+
++ Request (application/json)
+    + Headers
+            
+            Authorization: Bearer <user_key_auth> (required, String) - OAuth2.0 Bearer Token authorization
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "status": true,
+                "result": 
+                {
+                    "firstName": "Renan",
+                    "lastName": "Hozumi",
+                    "description": "string",
+                    "username": "renanhb",
+                    "avatar": "https://source.unsplash.com/random/200x200",
+                    "email": "renan.hbarbieri@gmail.com",
+                    "experience": 500,
+                    "facebook": "@renanhb",
+                    "github": "@renanBarbieri",
+                    "linkedin": "string",
+                    "level": 
+                    {
+                        "name": "Profissional"
+                    },
+                    "achievements": 
+                    [
+                        {
+                            "id": 20,
+                            "icon": "https://source.unsplash.com/random/80x80",
+                            "name": "Coração de ouro",
+                            "description": "bla bla bla wiskas sache"
+                        }, 
+                        {
+                            "id": 30,
+                            "icon": "https://source.unsplash.com/random/80x80",
+                            "name": "Coração de prata",
+                            "description": "bla bla bla wiskas sache"
+                        }, 
+                        {
+                            "id": 32,
+                            "icon": "https://source.unsplash.com/random/80x80",
+                            "name": "Coração de bronze",
+                            "description": "bla bla bla wiskas sache"
+                        }, 
+                        {
+                            "id": 18,
+                            "icon": "https://source.unsplash.com/random/80x80",
+                            "name": "Na direção certa",
+                            "description": "bla bla bla wiskas sache"
+                        }, 
+                        {
+                            "id": 78,
+                            "icon": "https://source.unsplash.com/random/80x80",
+                            "name": "Reta Final",
+                            "description": "bla bla bla wiskas sache"
+                        }, 
+                        {
+                            "id": 56,
+                            "icon": "https://source.unsplash.com/random/80x80",
+                            "name": "Na direção certa",
+                            "description": "bla bla bla wiskas sache"
+                        }
+                    ],
+                    "interests": 
                     [
                         {
                             "name": "Swift",
