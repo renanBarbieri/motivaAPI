@@ -100,7 +100,7 @@ Solicita os dados do usuário
                 }
             }
 
-## Dados do Usuário [/user]
+## Dados do Usuário [/user/{username}]
 ### Get User [GET]
 
 Solicita os dados do perfil de um usuário
@@ -109,6 +109,9 @@ Solicita os dados do perfil de um usuário
     + Headers
             
             Authorization: Bearer <user_key_auth> (required, String) - OAuth2.0 Bearer Token authorization
+            
+    + Parameters
+        + username: "renanhb" (required, String) - Username of some user.
 
 + Response 200 (application/json)
 
