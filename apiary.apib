@@ -3,6 +3,28 @@ HOST: http://polls.apiblueprint.org/
 # Motiva
 
 Descrição da API do Motiva
+
+## Login [/login]
+### Login [POST]
+Realiza login através de nome de usuário e senha
+
++ Request (application/json)
+  + Parameters
+      + username: (required, String) - Username of a user.
+      + password: (required, String) - Password of a user.
+
++ Response 200 (application/json)
+    + Body
+            {
+                "status": true,
+                "data": {
+                    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9..."
+                    "username": "lcleite",
+                    "user_id": 1,
+                    "active": true
+                }
+            }
+
 # Group User
 Ações relacionadas ao usuário
 
@@ -12,7 +34,7 @@ Solicita os dados do usuário
 
 + Request (application/json)
     + Headers
-    
+
             Authorization: user_credentials (required, String) - Base64 with username and password: Base64(username:password)
 
 + Response 200 (application/json)
@@ -21,98 +43,95 @@ Solicita os dados do usuário
 
             {
                 "status": "SUCCESS",
-                "result": 
+                "result":
                 {
                     "authkey": "ZXN0ZVVzdcOhcmlvQWdvcmFFc3RhQXV0ZW50aWNhZG9Db3JyZXRhbWVudGU=",
                 }
             }
 
-## Dados do Usuário [/user]
+## Dados do Usuário [/user/{username}]
 ### Get User [GET]
 
-Solicita os dados do usuário
+Solicita os dados do perfil de um usuário
 
 + Request (application/json)
     + Headers
-            
-            Authorization: user_key_auth (required, String) - Key authorization
+
+            Authorization: Bearer <user_key_auth> (required, String) - OAuth2.0 Bearer Token authorization
 
 + Response 200 (application/json)
-
     + Body
 
             {
-                "status": "SUCCESS",
-                "result": 
+                "status": true,
+                "user":
                 {
-                    "name": "Renan",
+                    "first_name": "Renan",
+                    "last_name": "Hozumi",
                     "description": "string",
                     "username": "renanhb",
-                    "avatar": "https://source.unsplash.com/random/200x200",
+                    "avatar_url": "https://source.unsplash.com/random/200x200",
                     "email": "renan.hbarbieri@gmail.com",
-                    "experience": 500,
                     "facebook": "@renanhb",
                     "github": "@renanBarbieri",
                     "linkedin": "string",
-                    "level": 
+                    "level":
                     {
-                        "name": "Profissional",
-                        "completetion": 90,
-                        "nextLevelName":"Iniciante"
+                        "name": "Profissional"
                     },
-                    "rewards": 
+                    "achievements":
                     [
                         {
                             "id": 20,
-                            "icon": "https://source.unsplash.com/random/80x80",
+                            "image_url": "https://source.unsplash.com/random/80x80",
                             "name": "Coração de ouro",
                             "description": "bla bla bla wiskas sache"
-                        }, 
+                        },
                         {
                             "id": 30,
-                            "icon": "https://source.unsplash.com/random/80x80",
+                            "image_url": "https://source.unsplash.com/random/80x80",
                             "name": "Coração de prata",
                             "description": "bla bla bla wiskas sache"
-                        }, 
+                        },
                         {
                             "id": 32,
-                            "icon": "https://source.unsplash.com/random/80x80",
+                            "image_url": "https://source.unsplash.com/random/80x80",
                             "name": "Coração de bronze",
                             "description": "bla bla bla wiskas sache"
-                        }, 
+                        },
                         {
                             "id": 18,
-                            "icon": "https://source.unsplash.com/random/80x80",
+                            "image_url": "https://source.unsplash.com/random/80x80",
                             "name": "Na direção certa",
                             "description": "bla bla bla wiskas sache"
-                        }, 
+                        },
                         {
                             "id": 78,
-                            "icon": "https://source.unsplash.com/random/80x80",
+                            "image_url": "https://source.unsplash.com/random/80x80",
                             "name": "Reta Final",
                             "description": "bla bla bla wiskas sache"
-                        }, 
+                        },
                         {
                             "id": 56,
-                            "icon": "https://source.unsplash.com/random/80x80",
+                            "image_url": "https://source.unsplash.com/random/80x80",
                             "name": "Na direção certa",
                             "description": "bla bla bla wiskas sache"
                         }
                     ],
-                    "tags": 
+                    "interests":
                     [
                         {
                             "name": "Swift",
                             "id": 23
-                        }, 
+                        },
                         {
                             "name": "Python",
                             "id": 34
-                        }, 
+                        },
                         {
                             "name": "Objective-C",
                             "id": 65
-                        }, 
+                        },
                         {
                             "name": "Ruby",
                             "id": 2
@@ -134,7 +153,7 @@ Solicita os posts de uma tag
 
 + Request (application/json)
     + Headers
-    
+
             Authorization: user_key_auth (required, String) - Key authorization
 
 + Response 200 (application/json)
@@ -143,7 +162,7 @@ Solicita os posts de uma tag
 
             {
                 "status": "SUCCESS",
-                "result": 
+                "result":
                 [
                     {
                         "id": 23,
@@ -207,7 +226,7 @@ Solicita os posts de uma tag
                     }
                 ]
             }
-            
+
 # Group Tools
 Ações relacionadas a ferramentas
 ## Pesquisa [/search?q={query}&limit={limit}]
@@ -219,16 +238,16 @@ Ações relacionadas a ferramentas
 
 + Request (application/json)
     + Headers
-    
+
             Authorization: user_key_auth (required, String) - Key authorization
-            
+
 + Response 200 (application/json)
 
     + Body
 
             {
                 "status": "SUCCESS",
-                "result": 
+                "result":
                 {
                     "users":[
                         {
@@ -266,15 +285,15 @@ Ações relacionadas a ferramentas
                         {
                             "name": "Java",
                             "id": 23
-                        }, 
+                        },
                         {
                             "name": "JavaScript",
                             "id": 34
-                        }, 
+                        },
                         {
                             "name": "JavaServer Faces",
                             "id": 65
-                        }, 
+                        },
                         {
                             "name": "Java Reflection",
                             "id": 2
