@@ -3,32 +3,33 @@ HOST: http://polls.apiblueprint.org/
 # Motiva
 
 Descrição da API do Motiva
-# Group User
-Ações relacionadas ao usuário
 
-## Authorization [/login/]
-### Get AuthKey [POST]
-Solicita os dados do usuário
+## Login [/login]
+### Login [POST]
+Realiza login através de nome de usuário e senha
 
-+ Request (application/json)
-    + Headers
++ Attributes
+    + username: renan (required, string) - Username of a user.
+    + password: 123456 (required, string) - Password of a user.
     
-            Authorization: user_credentials (required, String) - Base64 with username and password: Base64(username:password)
-
++ Request (application/json)
+  
 + Response 200 (application/json)
-
     + Body
-
+    
             {
                 "status": true,
-                "result": 
-                {
-                    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJlbWFpbCI6InJlbmFuQGVtYWlsLmNvbSIsInVzZXJuYW1lIjoicmVuYW4iLCJleHAiOjE1MjU1Mzc3MzN9.3LFhV7CVVLL-rQdzQe_cMkTFwAVfLos4VX8l_szTAME",
-                    "username": "renan",
-                    "user_id": 3,
+                "data": {
+                    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9..."
+                    "username": "lcleite",
+                    "user_id": 1,
                     "active": true
                 }
             }
+
+
+# Group User
+Ações relacionadas ao usuário
 
 ## Dados do Usuário [/user/{username}]
 ### Get User [GET]
@@ -41,7 +42,7 @@ Solicita os dados do perfil de um usuário
             Authorization: Bearer <user_key_auth> (required, String) - OAuth2.0 Bearer Token authorization
             
     + Parameters
-        + username: "renanhb" (required, String) - Username of some user.
+        + username: "renan" (required, String) - Username of some user.
 
 + Response 200 (application/json)
 
@@ -51,13 +52,12 @@ Solicita os dados do perfil de um usuário
                 "status": true,
                 "result": 
                 {
-                    "firstName": "Renan",
-                    "lastName": "Hozumi",
+                    "first_name": "Renan",
+                    "last_name": "Hozumi",
                     "description": "string",
                     "username": "renanhb",
-                    "avatar": "https://source.unsplash.com/random/200x200",
+                    "avatar_url": "https://source.unsplash.com/random/200x200",
                     "email": "renan.hbarbieri@gmail.com",
-                    "experience": 500,
                     "facebook": "@renanhb",
                     "github": "@renanBarbieri",
                     "linkedin": "string",
@@ -69,37 +69,37 @@ Solicita os dados do perfil de um usuário
                     [
                         {
                             "id": 20,
-                            "icon": "https://source.unsplash.com/random/80x80",
+                            "image_url": "https://source.unsplash.com/random/80x80",
                             "name": "Coração de ouro",
                             "description": "bla bla bla wiskas sache"
                         }, 
                         {
                             "id": 30,
-                            "icon": "https://source.unsplash.com/random/80x80",
+                            "image_url": "https://source.unsplash.com/random/80x80",
                             "name": "Coração de prata",
                             "description": "bla bla bla wiskas sache"
                         }, 
                         {
                             "id": 32,
-                            "icon": "https://source.unsplash.com/random/80x80",
+                            "image_url": "https://source.unsplash.com/random/80x80",
                             "name": "Coração de bronze",
                             "description": "bla bla bla wiskas sache"
                         }, 
                         {
                             "id": 18,
-                            "icon": "https://source.unsplash.com/random/80x80",
+                            "image_url": "https://source.unsplash.com/random/80x80",
                             "name": "Na direção certa",
                             "description": "bla bla bla wiskas sache"
                         }, 
                         {
                             "id": 78,
-                            "icon": "https://source.unsplash.com/random/80x80",
+                            "image_url": "https://source.unsplash.com/random/80x80",
                             "name": "Reta Final",
                             "description": "bla bla bla wiskas sache"
                         }, 
                         {
                             "id": 56,
-                            "icon": "https://source.unsplash.com/random/80x80",
+                            "image_url": "https://source.unsplash.com/random/80x80",
                             "name": "Na direção certa",
                             "description": "bla bla bla wiskas sache"
                         }
@@ -156,11 +156,11 @@ Solicita os posts de uma tag
                         "subtitle": "Esse é um subtitulo",
                         "favorites": 19,
                         "likes": 5,
-                        "image": "https://source.unsplash.com/random/100x100",
+                        "image_url": "https://source.unsplash.com/random/100x100",
                         "publishDate": 1519495297000,
                         "editedDate": 1519495297000,
                         "owner": {
-                            "avatar": "https://source.unsplash.com/random/80x80",
+                            "avatar_url": "https://source.unsplash.com/random/80x80",
                             "name": "Usuario de teste",
                             "id": 76
                         }
@@ -171,11 +171,11 @@ Solicita os posts de uma tag
                         "subtitle": "Esse é um subtitulo",
                         "favorites": 3,
                         "likes": 11,
-                        "image": "https://source.unsplash.com/random/100x100",
+                        "image_url": "https://source.unsplash.com/random/100x100",
                         "publishDate": 1519495297000,
                         "editedDate": 1519495297000,
                         "owner": {
-                            "avatar": "https://source.unsplash.com/random/80x80",
+                            "avatar_url": "https://source.unsplash.com/random/80x80",
                             "name": "Usuario de teste 3",
                             "id": 43
                         }
@@ -186,11 +186,11 @@ Solicita os posts de uma tag
                         "subtitle": "Esse é um subtitulo",
                         "favorites": 6,
                         "likes": 1,
-                        "image": "https://source.unsplash.com/random/100x100",
+                        "image_url": "https://source.unsplash.com/random/100x100",
                         "publishDate": 1519495297000,
                         "editedDate": 1519495297000,
                         "owner": {
-                            "avatar": "https://source.unsplash.com/random/80x80",
+                            "avatar_url": "https://source.unsplash.com/random/80x80",
                             "name": "Usuario de teste 2",
                             "id": 56
                         }
@@ -201,11 +201,11 @@ Solicita os posts de uma tag
                         "subtitle": "Esse é um subtitulo",
                         "favorites": 4,
                         "likes": 10,
-                        "image": "https://source.unsplash.com/random/100x100",
+                        "image_url": "https://source.unsplash.com/random/100x100",
                         "publishDate": 1519495297000,
                         "editedDate": 1519495297000,
                         "owner": {
-                            "avatar": "https://source.unsplash.com/random/80x80",
+                            "avatar_url": "https://source.unsplash.com/random/80x80",
                             "name": "Usuario de teste 3",
                             "id": 43
                         }
