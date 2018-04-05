@@ -6,8 +6,8 @@ Descrição da API do Motiva
 # Group User
 Ações relacionadas ao usuário
 
-## Authorization [/user/auth]
-### Get AuthKey [GET]
+## Authorization [/login/]
+### Get AuthKey [POST]
 Solicita os dados do usuário
 
 + Request (application/json)
@@ -23,80 +23,10 @@ Solicita os dados do usuário
                 "status": true,
                 "result": 
                 {
-                    "authkey": "ZXN0ZVVzdcOhcmlvQWdvcmFFc3RhQXV0ZW50aWNhZG9Db3JyZXRhbWVudGU=",
-                    "name": "Renan",
-                    "description": "string",
-                    "username": "renanhb",
-                    "avatar": "https://source.unsplash.com/random/200x200",
-                    "email": "renan.hbarbieri@gmail.com",
-                    "experience": 500,
-                    "facebook": "@renanhb",
-                    "github": "@renanBarbieri",
-                    "linkedin": "string",
-                    "level": 
-                    {
-                        "name": "Profissional",
-                        "completetion": 90,
-                        "nextLevelName":"Iniciante"
-                    },
-                    "rewards": 
-                    [
-                        {
-                            "id": 20,
-                            "icon": "https://source.unsplash.com/random/80x80",
-                            "name": "Coração de ouro",
-                            "description": "bla bla bla wiskas sache"
-                        }, 
-                        {
-                            "id": 30,
-                            "icon": "https://source.unsplash.com/random/80x80",
-                            "name": "Coração de prata",
-                            "description": "bla bla bla wiskas sache"
-                        }, 
-                        {
-                            "id": 32,
-                            "icon": "https://source.unsplash.com/random/80x80",
-                            "name": "Coração de bronze",
-                            "description": "bla bla bla wiskas sache"
-                        }, 
-                        {
-                            "id": 18,
-                            "icon": "https://source.unsplash.com/random/80x80",
-                            "name": "Na direção certa",
-                            "description": "bla bla bla wiskas sache"
-                        }, 
-                        {
-                            "id": 78,
-                            "icon": "https://source.unsplash.com/random/80x80",
-                            "name": "Reta Final",
-                            "description": "bla bla bla wiskas sache"
-                        }, 
-                        {
-                            "id": 56,
-                            "icon": "https://source.unsplash.com/random/80x80",
-                            "name": "Na direção certa",
-                            "description": "bla bla bla wiskas sache"
-                        }
-                    ],
-                    "tags": 
-                    [
-                        {
-                            "name": "Swift",
-                            "id": 23
-                        }, 
-                        {
-                            "name": "Python",
-                            "id": 34
-                        }, 
-                        {
-                            "name": "Objective-C",
-                            "id": 65
-                        }, 
-                        {
-                            "name": "Ruby",
-                            "id": 2
-                        }
-                    ]
+                    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJlbWFpbCI6InJlbmFuQGVtYWlsLmNvbSIsInVzZXJuYW1lIjoicmVuYW4iLCJleHAiOjE1MjU1Mzc3MzN9.3LFhV7CVVLL-rQdzQe_cMkTFwAVfLos4VX8l_szTAME",
+                    "username": "renan",
+                    "user_id": 3,
+                    "active": true
                 }
             }
 
