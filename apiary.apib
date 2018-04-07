@@ -11,12 +11,12 @@ Realiza login através de nome de usuário e senha
 + Attributes
     + username: renan (required, string) - Username of a user.
     + password: 123456 (required, string) - Password of a user.
-    
+
 + Request (application/json)
-  
+
 + Response 200 (application/json)
     + Body
-    
+
             {
                 "status": true,
                 "data": {
@@ -38,9 +38,9 @@ Solicita os dados do perfil de um usuário
 
 + Request (application/json)
     + Headers
-            
+
             Authorization: Bearer <user_key_auth> (required, String) - OAuth2.0 Bearer Token authorization
-            
+
     + Parameters
         + username: "renan" (required, String) - Username of some user.
 
@@ -50,7 +50,7 @@ Solicita os dados do perfil de um usuário
 
             {
                 "status": true,
-                "result": 
+                "result":
                 {
                     "first_name": "Renan",
                     "last_name": "Hozumi",
@@ -61,42 +61,42 @@ Solicita os dados do perfil de um usuário
                     "facebook": "@renanhb",
                     "github": "@renanBarbieri",
                     "linkedin": "string",
-                    "level": 
+                    "level":
                     {
                         "name": "Profissional"
                     },
-                    "achievements": 
+                    "achievements":
                     [
                         {
                             "id": 20,
                             "image_url": "https://source.unsplash.com/random/80x80",
                             "name": "Coração de ouro",
                             "description": "bla bla bla wiskas sache"
-                        }, 
+                        },
                         {
                             "id": 30,
                             "image_url": "https://source.unsplash.com/random/80x80",
                             "name": "Coração de prata",
                             "description": "bla bla bla wiskas sache"
-                        }, 
+                        },
                         {
                             "id": 32,
                             "image_url": "https://source.unsplash.com/random/80x80",
                             "name": "Coração de bronze",
                             "description": "bla bla bla wiskas sache"
-                        }, 
+                        },
                         {
                             "id": 18,
                             "image_url": "https://source.unsplash.com/random/80x80",
                             "name": "Na direção certa",
                             "description": "bla bla bla wiskas sache"
-                        }, 
+                        },
                         {
                             "id": 78,
                             "image_url": "https://source.unsplash.com/random/80x80",
                             "name": "Reta Final",
                             "description": "bla bla bla wiskas sache"
-                        }, 
+                        },
                         {
                             "id": 56,
                             "image_url": "https://source.unsplash.com/random/80x80",
@@ -104,20 +104,20 @@ Solicita os dados do perfil de um usuário
                             "description": "bla bla bla wiskas sache"
                         }
                     ],
-                    "interests": 
+                    "interests":
                     [
                         {
                             "name": "Swift",
                             "id": 23
-                        }, 
+                        },
                         {
                             "name": "Python",
                             "id": 34
-                        }, 
+                        },
                         {
                             "name": "Objective-C",
                             "id": 65
-                        }, 
+                        },
                         {
                             "name": "Ruby",
                             "id": 2
@@ -127,20 +127,22 @@ Solicita os dados do perfil de um usuário
             }
 # Group Topics
 Ações relacionadas aos topicos
-## Posts de um tópico [/tag/{id}/posts?limit={limit}]
+## Posts de um tópico [/tag/{tag_name}/posts?limit={limit}&page={page}]
 ### Get Posts [GET]
 
 Solicita os posts de uma tag
 
 + Parameters
-    + id: 2 (required, Number) - Id of tag.
-    + limit: 4 (optional, Number) - Limit number of articles
-        + Default: 4
+    + tag_name: "Android" (required, String) - Name of a tag.
+    + limit: 4 (optional, Number) - Limit the number of posts
+        + Default: 0 (no limit)
+    + page: 2 (optional, Number) - Page number of query result
+        + Default: 1
 
 + Request (application/json)
     + Headers
-    
-            Authorization: user_key_auth (required, String) - Key authorization
+
+            Authorization: Bearer <user_key_auth> (required, String) - OAuth2.0 Bearer Token authorization
 
 + Response 200 (application/json)
 
@@ -148,71 +150,78 @@ Solicita os posts de uma tag
 
             {
                 "status": true,
-                "result": 
-                [
-                    {
-                        "id": 23,
-                        "title": "Titulo do Artigo 0",
-                        "subtitle": "Esse é um subtitulo",
-                        "favorites": 19,
-                        "likes": 5,
-                        "image_url": "https://source.unsplash.com/random/100x100",
-                        "publishDate": 1519495297000,
-                        "editedDate": 1519495297000,
-                        "owner": {
-                            "avatar_url": "https://source.unsplash.com/random/80x80",
-                            "name": "Usuario de teste",
-                            "id": 76
-                        }
-                    },
-                    {
-                        "id": 23,
-                        "title": "Titulo do Artigo 2",
-                        "subtitle": "Esse é um subtitulo",
-                        "favorites": 3,
-                        "likes": 11,
-                        "image_url": "https://source.unsplash.com/random/100x100",
-                        "publishDate": 1519495297000,
-                        "editedDate": 1519495297000,
-                        "owner": {
-                            "avatar_url": "https://source.unsplash.com/random/80x80",
-                            "name": "Usuario de teste 3",
-                            "id": 43
-                        }
-                    },
-                    {
-                        "id": 23,
-                        "title": "Titulo do Artigo 3",
-                        "subtitle": "Esse é um subtitulo",
-                        "favorites": 6,
-                        "likes": 1,
-                        "image_url": "https://source.unsplash.com/random/100x100",
-                        "publishDate": 1519495297000,
-                        "editedDate": 1519495297000,
-                        "owner": {
-                            "avatar_url": "https://source.unsplash.com/random/80x80",
-                            "name": "Usuario de teste 2",
-                            "id": 56
-                        }
-                    },
-                    {
-                        "id": 23,
-                        "title": "Titulo do Artigo 4",
-                        "subtitle": "Esse é um subtitulo",
-                        "favorites": 4,
-                        "likes": 10,
-                        "image_url": "https://source.unsplash.com/random/100x100",
-                        "publishDate": 1519495297000,
-                        "editedDate": 1519495297000,
-                        "owner": {
-                            "avatar_url": "https://source.unsplash.com/random/80x80",
-                            "name": "Usuario de teste 3",
-                            "id": 43
-                        }
-                    }
-                ]
+                "result":
+                {
+                    "posts":
+                          [
+                              {
+                                  "id": 23,
+                                  "title": "Titulo do Artigo 0",
+                                  "description": "Esse é um subtitulo",
+                                  "views": 19,
+                                  "likes": 5,
+                                  "image_url": "https://source.unsplash.com/random/100x100",
+                                  "date": "2018-02-02 22:00:00-02",
+                                  "edited_at": null,
+                                  "author": {
+                                      "avatar_url": "https://source.unsplash.com/random/80x80",
+                                      "first_name": "Usuario",
+                                      "last_name": "de teste",
+                                      "username": "user"
+                                  }
+                              },
+                              {
+                                  "id": 23,
+                                  "title": "Titulo do Artigo 2",
+                                  "description": "Esse é um subtitulo",
+                                  "views": 3,
+                                  "likes": 11,
+                                  "image_url": "https://source.unsplash.com/random/100x100",
+                                  "date": "2018-02-02 22:00:00-02",
+                                  "edited_at": "2018-02-16 20:09:32.68518-02",
+                                  "author": {
+                                      "avatar_url": "https://source.unsplash.com/random/80x80",
+                                      "first_name": "Usuario",
+                                      "last_name": "de teste 2",
+                                      "username": "user2"
+                                  }
+                              },
+                              {
+                                  "id": 23,
+                                  "title": "Titulo do Artigo 3",
+                                  "description": "Esse é um subtitulo",
+                                  "views": 6,
+                                  "likes": 1,
+                                  "image_url": "https://source.unsplash.com/random/100x100",
+                                  "date": "2018-02-02 22:00:00-02",
+                                  "edited_at": "2018-02-16 20:09:32.68518-02",
+                                  "author": {
+                                      "avatar_url": "https://source.unsplash.com/random/80x80",
+                                      "first_name": "Usuario",
+                                      "last_name": "de teste 3",
+                                      "username": "user3"
+                                  }
+                              },
+                              {
+                                  "id": 23,
+                                  "title": "Titulo do Artigo 4",
+                                  "description": "Esse é um subtitulo",
+                                  "views": 4,
+                                  "likes": 10,
+                                  "image_url": "https://source.unsplash.com/random/100x100",
+                                  "date": "2018-02-02 22:00:00-02",
+                                  "edited_at": null,
+                                  "author": {
+                                      "avatar_url": "https://source.unsplash.com/random/80x80",
+                                      "first_name": "Usuario",
+                                      "last_name": "de teste 4",
+                                      "username": "user4"
+                                  }
+                              }
+                          ]
+                }
             }
-            
+
 # Group Tools
 Ações relacionadas a ferramentas
 ## Pesquisa [/search?q={query}&limit={limit}]
@@ -224,16 +233,16 @@ Ações relacionadas a ferramentas
 
 + Request (application/json)
     + Headers
-    
+
             Authorization: user_key_auth (required, String) - Key authorization
-            
+
 + Response 200 (application/json)
 
     + Body
 
             {
                 "status": true,
-                "result": 
+                "result":
                 {
                     "users":[
                         {
@@ -271,15 +280,15 @@ Ações relacionadas a ferramentas
                         {
                             "name": "Java",
                             "id": 23
-                        }, 
+                        },
                         {
                             "name": "JavaScript",
                             "id": 34
-                        }, 
+                        },
                         {
                             "name": "JavaServer Faces",
                             "id": 65
-                        }, 
+                        },
                         {
                             "name": "Java Reflection",
                             "id": 2
