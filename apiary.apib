@@ -31,6 +31,112 @@ Realiza login através de nome de usuário e senha
 # Group User
 Ações relacionadas ao usuário
 
+## Dados do Usuário Logado [/user]
+### Get User [GET]
+
+Solicita os dados do usuário logado
+
++ Request (application/json)
+    + Headers
+
+            Authorization: Bearer <user_key_auth> (required, String) - OAuth2.0 Bearer Token authorization
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "status": true,
+                "result":
+                {
+                    "logged_in_user":
+                    {
+                        "first_name": "Renan",
+                        "last_name": "Hozumi",
+                        "description": "string",
+                        "username": "renanhb",
+                        "avatar_url": "https://source.unsplash.com/random/200x200",
+                        "email": "renan.hbarbieri@gmail.com",
+                        "facebook": "@renanhb",
+                        "github": "@renanBarbieri",
+                        "linkedin": "string",
+                        "level":
+                        {
+                            "id": 3,
+                            "name": "Profissional",
+                            "description": "Nível Profissional",
+                            "experience": 90,
+                            "next_level_experience": 110,
+                            "next_level_name": "Mestre"
+                        },
+                        "achievements":
+                        [
+                            {
+                                "id": 20,
+                                "image_url": "https://source.unsplash.com/random/80x80",
+                                "name": "Coração de ouro",
+                                "description": "bla bla bla wiskas sache"
+                            },
+                            {
+                                "id": 30,
+                                "image_url": "https://source.unsplash.com/random/80x80",
+                                "name": "Coração de prata",
+                                "description": "bla bla bla wiskas sache"
+                            },
+                            {
+                                "id": 32,
+                                "image_url": "https://source.unsplash.com/random/80x80",
+                                "name": "Coração de bronze",
+                                "description": "bla bla bla wiskas sache"
+                            },
+                            {
+                                "id": 18,
+                                "image_url": "https://source.unsplash.com/random/80x80",
+                                "name": "Na direção certa",
+                                "description": "bla bla bla wiskas sache"
+                            },
+                            {
+                                "id": 78,
+                                "image_url": "https://source.unsplash.com/random/80x80",
+                                "name": "Reta Final",
+                                "description": "bla bla bla wiskas sache"
+                            },
+                            {
+                                "id": 56,
+                                "image_url": "https://source.unsplash.com/random/80x80",
+                                "name": "Na direção certa",
+                                "description": "bla bla bla wiskas sache"
+                            }
+                        ],
+                        "interests":
+                        [
+                            {
+                                "name": "Swift",
+                                "id": 23
+                            },
+                            {
+                                "name": "Python",
+                                "id": 34
+                            },
+                            {
+                                "name": "Objective-C",
+                                "id": 65
+                            },
+                            {
+                                "name": "Ruby",
+                                "id": 2
+                            }
+                        ],
+                        "starred_posts":
+                        [
+                            {
+                                //TODO: definir o mínimo de dados necessários de um Post
+                            }
+                        ]
+                    }
+                }
+            }
+
 ## Dados do Usuário [/user/{username}]
 ### Get User [GET]
 
