@@ -4,6 +4,31 @@ HOST: http://polls.apiblueprint.org/
 
 Descrição da API do Motiva
 
+## Upload de avatar do usuário [/upload/user_avatar]
+### Upload User Avatar [POST]
+Faz upload da imagem de perfil de um usuário
+
++ Attributes
+    + image_file: [File] (required, object) - File of a user avatar.
+
++ Request (form-data)
+    + Headers
+
+            Authorization: Bearer <user_key_auth> (required, String) - OAuth2.0 Bearer Token authorization
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "status": true,
+                "result": {
+                    "message": "Upload realizado com sucesso",
+                    "filename": "/media/<file_name>.jpg"
+                }
+            }
+
+
 ## Login [/login]
 ### Login [POST]
 Realiza login através de nome de usuário e senha
@@ -15,8 +40,9 @@ Realiza login através de nome de usuário e senha
 + Request (application/json)
   
 + Response 200 (application/json)
+
     + Body
-    
+
             {
                 "status": true,
                 "result": {
