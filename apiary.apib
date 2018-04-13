@@ -19,7 +19,7 @@ Realiza login através de nome de usuário e senha
     
             {
                 "status": true,
-                "data": {
+                "result": {
                     "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9..."
                     "username": "lcleite",
                     "user_id": 1,
@@ -52,77 +52,82 @@ Solicita os dados do perfil de um usuário
                 "status": true,
                 "result": 
                 {
-                    "first_name": "Renan",
-                    "last_name": "Hozumi",
-                    "description": "string",
-                    "username": "renanhb",
-                    "avatar_url": "https://source.unsplash.com/random/200x200",
-                    "email": "renan.hbarbieri@gmail.com",
-                    "facebook": "@renanhb",
-                    "github": "@renanBarbieri",
-                    "linkedin": "string",
-                    "level": 
+                    "user":
                     {
-                        "name": "Profissional"
-                    },
-                    "achievements": 
-                    [
+                        "first_name": "Renan",
+                        "last_name": "Hozumi",
+                        "description": "string",
+                        "username": "renanhb",
+                        "avatar_url": "https://source.unsplash.com/random/200x200",
+                        "email": "renan.hbarbieri@gmail.com",
+                        "facebook": "@renanhb",
+                        "github": "@renanBarbieri",
+                        "linkedin": "string",
+                        "level": 
                         {
-                            "id": 20,
-                            "image_url": "https://source.unsplash.com/random/80x80",
-                            "name": "Coração de ouro",
-                            "description": "bla bla bla wiskas sache"
-                        }, 
-                        {
-                            "id": 30,
-                            "image_url": "https://source.unsplash.com/random/80x80",
-                            "name": "Coração de prata",
-                            "description": "bla bla bla wiskas sache"
-                        }, 
-                        {
-                            "id": 32,
-                            "image_url": "https://source.unsplash.com/random/80x80",
-                            "name": "Coração de bronze",
-                            "description": "bla bla bla wiskas sache"
-                        }, 
-                        {
-                            "id": 18,
-                            "image_url": "https://source.unsplash.com/random/80x80",
-                            "name": "Na direção certa",
-                            "description": "bla bla bla wiskas sache"
-                        }, 
-                        {
-                            "id": 78,
-                            "image_url": "https://source.unsplash.com/random/80x80",
-                            "name": "Reta Final",
-                            "description": "bla bla bla wiskas sache"
-                        }, 
-                        {
-                            "id": 56,
-                            "image_url": "https://source.unsplash.com/random/80x80",
-                            "name": "Na direção certa",
-                            "description": "bla bla bla wiskas sache"
-                        }
-                    ],
-                    "interests": 
-                    [
-                        {
-                            "name": "Swift",
-                            "id": 23
-                        }, 
-                        {
-                            "name": "Python",
-                            "id": 34
-                        }, 
-                        {
-                            "name": "Objective-C",
-                            "id": 65
-                        }, 
-                        {
-                            "name": "Ruby",
-                            "id": 2
-                        }
-                    ]
+                            "id": 3,
+                            "name": "Profissional",
+                            "description": "Nível Profissional"
+                        },
+                        "achievements": 
+                        [
+                            {
+                                "id": 20,
+                                "image_url": "https://source.unsplash.com/random/80x80",
+                                "name": "Coração de ouro",
+                                "description": "bla bla bla wiskas sache"
+                            }, 
+                            {
+                                "id": 30,
+                                "image_url": "https://source.unsplash.com/random/80x80",
+                                "name": "Coração de prata",
+                                "description": "bla bla bla wiskas sache"
+                            }, 
+                            {
+                                "id": 32,
+                                "image_url": "https://source.unsplash.com/random/80x80",
+                                "name": "Coração de bronze",
+                                "description": "bla bla bla wiskas sache"
+                            }, 
+                            {
+                                "id": 18,
+                                "image_url": "https://source.unsplash.com/random/80x80",
+                                "name": "Na direção certa",
+                                "description": "bla bla bla wiskas sache"
+                            }, 
+                            {
+                                "id": 78,
+                                "image_url": "https://source.unsplash.com/random/80x80",
+                                "name": "Reta Final",
+                                "description": "bla bla bla wiskas sache"
+                            }, 
+                            {
+                                "id": 56,
+                                "image_url": "https://source.unsplash.com/random/80x80",
+                                "name": "Na direção certa",
+                                "description": "bla bla bla wiskas sache"
+                            }
+                        ],
+                        "interests": 
+                        [
+                            {
+                                "name": "Swift",
+                                "id": 23
+                            }, 
+                            {
+                                "name": "Python",
+                                "id": 34
+                            }, 
+                            {
+                                "name": "Objective-C",
+                                "id": 65
+                            }, 
+                            {
+                                "name": "Ruby",
+                                "id": 2
+                            }
+                        ]
+                    }
                 }
             }
 # Group Topics
@@ -148,7 +153,7 @@ Solicita os posts de uma tag
 
             {
                 "status": true,
-                "result": 
+                "result"
                 [
                     {
                         "id": 23,
