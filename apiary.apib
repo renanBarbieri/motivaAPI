@@ -4,6 +4,51 @@ HOST: http://polls.apiblueprint.org/
 
 Descrição da API do Motiva
 
+## Create Post [/post/create]
+Cria uma postagem
+
++ Request (application/json)
+    + Headers
+            Authorization: Bearer <user_key_auth> (required, String) - OAuth2.0 Bearer Token authorization
+    + Parameters
+            + title: "My test post" (required, string) - Title of a post.
+            + "description": "Bla bla bla" (required, string) - Description of a post.
+            + "text": "Ble ble eeeeee iiii ioooo uuuuuu" (required, string) - Text of a post.
+            + "tags": ["Tag1"] (required, string array) - Tags of a post.
+
++ Response 201 (application/json)
+    + Body
+            {
+              "status": true,
+              "result": {
+                "post": {
+                  	"id": 7,
+                  	"tags": [
+                  		{
+                  			"id": 1,
+                  			"name": "Tag1"
+                  		}
+                  	],
+                  	"author": {
+                  		"username": "lcleite",
+                  		"first_name": "Leandro",
+                  		"last_name": "Leite",
+                  		"avatar_url": "/media/lcleite_avatar.jpg"
+                  	},
+                  	"title": "My test post",
+                  	"date": "2018-04-16T22:14:27.194962",
+                  	"edited_at": null,
+                  	"description": "Bla bla bla",
+                  	"image_url": null,
+                  	"views": 0,
+                  	"likes": 0,
+                  	"text": "Ble ble eeeeee iiii ioooo uuuuuu",
+                  	"reading_time": 0.02,
+                  	"who_liked": []
+                  }
+              }
+            }
+
 ## Login [/login]
 ### Login [POST]
 Realiza login através de nome de usuário e senha
@@ -11,12 +56,12 @@ Realiza login através de nome de usuário e senha
 + Attributes
     + username: renan (required, string) - Username of a user.
     + password: 123456 (required, string) - Password of a user.
-    
+
 + Request (application/json)
-  
+
 + Response 200 (application/json)
     + Body
-    
+
             {
                 "status": true,
                 "data": {
@@ -38,9 +83,9 @@ Solicita os dados do perfil de um usuário
 
 + Request (application/json)
     + Headers
-            
+
             Authorization: Bearer <user_key_auth> (required, String) - OAuth2.0 Bearer Token authorization
-            
+
     + Parameters
         + username: "renan" (required, String) - Username of some user.
 
@@ -50,7 +95,7 @@ Solicita os dados do perfil de um usuário
 
             {
                 "status": true,
-                "result": 
+                "result":
                 {
                     "first_name": "Renan",
                     "last_name": "Hozumi",
@@ -61,42 +106,42 @@ Solicita os dados do perfil de um usuário
                     "facebook": "@renanhb",
                     "github": "@renanBarbieri",
                     "linkedin": "string",
-                    "level": 
+                    "level":
                     {
                         "name": "Profissional"
                     },
-                    "achievements": 
+                    "achievements":
                     [
                         {
                             "id": 20,
                             "image_url": "https://source.unsplash.com/random/80x80",
                             "name": "Coração de ouro",
                             "description": "bla bla bla wiskas sache"
-                        }, 
+                        },
                         {
                             "id": 30,
                             "image_url": "https://source.unsplash.com/random/80x80",
                             "name": "Coração de prata",
                             "description": "bla bla bla wiskas sache"
-                        }, 
+                        },
                         {
                             "id": 32,
                             "image_url": "https://source.unsplash.com/random/80x80",
                             "name": "Coração de bronze",
                             "description": "bla bla bla wiskas sache"
-                        }, 
+                        },
                         {
                             "id": 18,
                             "image_url": "https://source.unsplash.com/random/80x80",
                             "name": "Na direção certa",
                             "description": "bla bla bla wiskas sache"
-                        }, 
+                        },
                         {
                             "id": 78,
                             "image_url": "https://source.unsplash.com/random/80x80",
                             "name": "Reta Final",
                             "description": "bla bla bla wiskas sache"
-                        }, 
+                        },
                         {
                             "id": 56,
                             "image_url": "https://source.unsplash.com/random/80x80",
@@ -104,20 +149,20 @@ Solicita os dados do perfil de um usuário
                             "description": "bla bla bla wiskas sache"
                         }
                     ],
-                    "interests": 
+                    "interests":
                     [
                         {
                             "name": "Swift",
                             "id": 23
-                        }, 
+                        },
                         {
                             "name": "Python",
                             "id": 34
-                        }, 
+                        },
                         {
                             "name": "Objective-C",
                             "id": 65
-                        }, 
+                        },
                         {
                             "name": "Ruby",
                             "id": 2
@@ -139,7 +184,7 @@ Solicita os posts de uma tag
 
 + Request (application/json)
     + Headers
-    
+
             Authorization: user_key_auth (required, String) - Key authorization
 
 + Response 200 (application/json)
@@ -148,7 +193,7 @@ Solicita os posts de uma tag
 
             {
                 "status": true,
-                "result": 
+                "result":
                 [
                     {
                         "id": 23,
@@ -212,7 +257,7 @@ Solicita os posts de uma tag
                     }
                 ]
             }
-            
+
 # Group Tools
 Ações relacionadas a ferramentas
 ## Pesquisa [/search?q={query}&limit={limit}]
@@ -224,16 +269,16 @@ Ações relacionadas a ferramentas
 
 + Request (application/json)
     + Headers
-    
+
             Authorization: user_key_auth (required, String) - Key authorization
-            
+
 + Response 200 (application/json)
 
     + Body
 
             {
                 "status": true,
-                "result": 
+                "result":
                 {
                     "users":[
                         {
@@ -271,15 +316,15 @@ Ações relacionadas a ferramentas
                         {
                             "name": "Java",
                             "id": 23
-                        }, 
+                        },
                         {
                             "name": "JavaScript",
                             "id": 34
-                        }, 
+                        },
                         {
                             "name": "JavaServer Faces",
                             "id": 65
-                        }, 
+                        },
                         {
                             "name": "Java Reflection",
                             "id": 2
