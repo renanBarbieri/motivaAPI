@@ -4,14 +4,13 @@ HOST: http://polls.apiblueprint.org/
 
 Descrição da API do
 
-## Edit Post [/post/edit]
+## Edit Post [/post/<username>/<post_id>/edit] [POST]
 Edita uma postagem
 
 + Request (application/json)
     + Headers
             Authorization: Bearer <user_key_auth> (required, String) - OAuth2.0 Bearer Token authorization
     + Parameters
-            + post_id: 1 (required, Number) - ID of a post.
             + title: "My test post" (optional, string) - Title of a post.
             + description: "Bla bla bla" (optional, string) - Description of a post.
             + text: "Ble ble eeeeee iiii ioooo uuuuuu" (optional, string) - Text of a post.
