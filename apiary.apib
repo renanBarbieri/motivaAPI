@@ -10,6 +10,9 @@ Edita uma postagem
 + Request (application/json)
     + Headers
             Authorization: Bearer <user_key_auth> (required, String) - OAuth2.0 Bearer Token authorization
+    + URL Parameters
+        + username: lcleite (required, String) - Username of a post author.
+        + post_id: 1 (required, Number) - ID of a post.
     + Parameters
             + title: "My test post" (optional, string) - Title of a post.
             + description: "Bla bla bla" (optional, string) - Description of a post.
