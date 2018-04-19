@@ -4,57 +4,6 @@ HOST: http://polls.apiblueprint.org/
 
 Descrição da API do 
 
-## Upload de imagem de uma postagem [/upload/post_image]
-### Upload Post Image [POST]
-Faz upload da imagem de imagem de uma postagem
-
-+ Attributes
-        + image_file: [File] (required, File) - File of a post image.
-        + post_id: "1" (required, Text) - ID of a post
-        
-+ Request (form-data)
-    + Headers
-        
-            Authorization: Bearer <user_key_auth> (required, String) - OAuth2.0 Bearer Token authorization
-
-+ Response 200 (application/json)
-
-    + Body
-
-            {
-                "status": true,
-                "result": {
-                    "message": "Upload realizado com sucesso",
-                    "filename": "/media/<file_name>.jpg"
-                }
-            }
-
-
-## Upload de avatar do usuário [/upload/user_avatar]
-### Upload User Avatar [POST]
-Faz upload da imagem de perfil de um usuário
-
-+ Attributes
-    + image_file: [File] (required, object) - File of a user avatar.
-
-+ Request (form-data)
-    + Headers
-
-            Authorization: Bearer <user_key_auth> (required, String) - OAuth2.0 Bearer Token authorization
-
-+ Response 200 (application/json)
-
-    + Body
-
-            {
-                "status": true,
-                "result": {
-                    "message": "Upload realizado com sucesso",
-                    "filename": "/media/<file_name>.jpg"
-                }
-            }
-
-
 ## Login [/login]
 ### Login [POST]
 Realiza login através de nome de usuário e senha
@@ -72,7 +21,7 @@ Realiza login através de nome de usuário e senha
             {
                 "status": true,
                 "result": {
-                    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9..."
+                    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9...",
                     "username": "lcleite",
                     "user_id": 1,
                     "active": true
@@ -289,6 +238,32 @@ Solicita os dados do perfil de um usuário
                     }
                 }
             }
+            
+## Upload de avatar do usuário [/upload/user_avatar]
+### Upload User Avatar [POST]
+Faz upload da imagem de perfil de um usuário
+
++ Attributes
+    + image_file: [File] (required, object) - File of a user avatar.
+
++ Request (form-data)
+    + Headers
+
+            Authorization: Bearer <user_key_auth> (required, String) - OAuth2.0 Bearer Token authorization
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "status": true,
+                "result": {
+                    "message": "Upload realizado com sucesso",
+                    "filename": "/media/<file_name>.jpg"
+                }
+            }
+
+
 
 # Group Topics
 Ações relacionadas aos topicos
@@ -383,7 +358,86 @@ Solicita os posts de uma tag
                     ]
                 }
             }
-            
+
+# Group Posts
+Ações relacionadas aos posts
+## Post [/post]
+Métodos do post
+
+### Create Post [POST]
++ Attributes
+        + title: "My test post" (required, string) - Title of a post.
+        + description: "Bla bla bla" (required, string) - Description of a post.
+        + text: "Ble ble eeeeee iiii ioooo uuuuuu" (required, string) - Text of a post.
+        + tags: ["Tag1"] (required, string array) - Tags of a post.
+
++ Request (form-data)
+    + Headers
+
+            Authorization: Bearer <user_key_auth> (required, String) - OAuth2.0 Bearer Token authorization
+
++ Response 201 (application/json)
+
+    + Body
+
+            {
+              "status": true,
+              "result": {
+                    "post": {
+                        "id": 7,
+                        "tags": [
+                            {   
+                                "id": 1,
+                                "name": "Tag1"
+                            }
+                        ],
+                        "author": {
+                            "username": "lcleite",
+                            "first_name": "Leandro",
+                            "last_name": "Leite",
+                            "avatar_url": "/media/lcleite_avatar.jpg"
+                        },
+                        "title": "My test post",
+                        "date": "2018-04-16T22:14:27.194962",
+                        "edited_at": null,
+                        "description": "Bla bla bla",
+                        "image_url": null,
+                        "views": 0,
+                        "likes": 0,
+                        "text": "Ble ble eeeeee iiii ioooo uuuuuu",
+                        "reading_time": 0.02,
+                        "who_liked": []
+                    }
+                }
+            }
+
+
+## Upload de imagem de uma postagem [/upload/post_image]
+### Upload Post Image [POST]
+Faz upload da imagem de imagem de uma postagem
+
++ Attributes
+        + image_file: [File] (required, File) - File of a post image.
+        + post_id: "1" (required, Text) - ID of a post
+        
++ Request (form-data)
+    + Headers
+        
+            Authorization: Bearer <user_key_auth> (required, String) - OAuth2.0 Bearer Token authorization
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "status": true,
+                "result": {
+                    "message": "Upload realizado com sucesso",
+                    "filename": "/media/<file_name>.jpg"
+                }
+            }
+
+
 # Group Tools
 Ações relacionadas a ferramentas
 ## Pesquisa [/search?q={query}&limit={limit}]
