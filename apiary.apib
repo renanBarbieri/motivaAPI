@@ -363,7 +363,6 @@ Solicita os posts de uma tag
 Ações relacionadas aos posts
 ## Post [/post]
 Métodos do post
-
 ### Create Post [POST]
 + Attributes
         + title: "My test post" (required, string) - Title of a post.
@@ -387,6 +386,56 @@ Métodos do post
                         "id": 7,
                         "tags": [
                             {   
+                                "id": 1,
+                                "name": "Tag1"
+                            }
+                        ],
+                        "author": {
+                            "username": "lcleite",
+                            "first_name": "Leandro",
+                            "last_name": "Leite",
+                            "avatar_url": "/media/lcleite_avatar.jpg"
+                        },
+                        "title": "My test post",
+                        "date": "2018-04-16T22:14:27.194962",
+                        "edited_at": null,
+                        "description": "Bla bla bla",
+                        "image_url": null,
+                        "views": 0,
+                        "likes": 0,
+                        "text": "Ble ble eeeeee iiii ioooo uuuuuu",
+                        "reading_time": 0.02,
+                        "who_liked": []
+                    }
+                }
+            }
+            
+### Edit Post [PUT]
+Edita uma postagem
+
++ Attributes
+    + post_id: 1 (required, number) - ID of a post.
+    + title: "My test post" (optional, string) - Title of a post.
+    + description: "Bla bla bla" (optional, string) - Description of a post.
+    + text: "Ble ble eeeeee iiii ioooo uuuuuu" (optional, string) - Text of a post.
+    + tags: ["Tag1"] (optional, array) - Tags of a post (Array<string>).
+
++ Request (application/json)
+    + Headers
+
+            Authorization: Bearer <user_key_auth> (required, String) - OAuth2.0 Bearer Token authorization
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "status": true,
+                "result": {
+                    "post": {
+                        "id": 7,
+                        "tags": [
+                            {
                                 "id": 1,
                                 "name": "Tag1"
                             }
