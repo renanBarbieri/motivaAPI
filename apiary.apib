@@ -507,6 +507,32 @@ Recebe uma postagem
                     }
                 }
             }
+            
+## Comment [/post/<username>/<post_id>/comment]
+Ações relacionadas a comentários de uma postagem
+
+### Add[POST]
++ Attributes
+    + text: "My comment" (required, string) - Text of a post comment.
+
++ Request (application/json)
+    + Headers
+
+            Authorization: Bearer <user_key_auth> (required, String) - OAuth2.0 Bearer Token authorization
+
+    + Parameters
+        + username: lcleite (required, String) - Username of a post author.
+        + post_id: 1 (required, Number) - ID of a post.                  
+
++ Response 201 (application/json)
+
+    + Body
+
+            {
+                "status": true,
+                "result": {
+                "message": "Comentário inserido com sucesso"
+            }
 
 ## Upload de imagem de uma postagem [/upload/post_image]
 ### Upload Post Image [POST]
