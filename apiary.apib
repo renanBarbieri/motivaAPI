@@ -264,7 +264,6 @@ Faz upload da imagem de perfil de um usuário
             }
 
 
-
 # Group Topics
 Ações relacionadas aos topicos
 ## Posts de um tópico [/tag/{tag_name}/posts?limit={limit}&page={page}]
@@ -643,197 +642,204 @@ Faz upload da imagem de imagem de uma postagem
 
 # Group Tools
 Ações relacionadas a ferramentas
-## Pesquisa [/search?q={query}&limit={limit}]
+## Pesquisa de usuário [/search/user?q={query}&page={page}]
 ### Get Result [GET]
 + Parameters
-    + query: "teleprocessamento" (required, String) - Query for search.
-    + limit: 4 (optional, Number) - Limit number of result. -1 is unlimited
-        + Default: 10
+    + query: "Leandro" (required, String) - Query for search.
+    + page: 1 (required, Number) - Page number of search result.
 
 + Request (application/json)
     + Headers
-    
-            Authorization: user_key_auth (required, String) - Key authorization
-            
+
+            Authorization: Bearer <user_key_auth> (required, String) - OAuth2.0 Bearer Token authorization
+
 + Response 200 (application/json)
 
     + Body
 
             {
                 "status": true,
-                "result": 
+                "result":
                 {
+                    "page": "1",
                     "users":[
                         {
                             "avatar_url": "https://source.unsplash.com/random/80x80",
-                            "name": "Usuario de teste 3",
-                            "id": 43
+                            "username": "lcleite"
+                            "fist_name": "Leandro",
+                            "last_name": "Leite"
                         },
                         {
                             "avatar_url": "https://source.unsplash.com/random/80x80",
-                            "name": "Usuario de teste 3",
-                            "id": 34
-                        },
-                        {
-                            "avatar_url": "https://source.unsplash.com/random/80x80",
-                            "name": "Usuario de teste 3",
-                            "id": 13
-                        },
-                        {
-                            "avatar_url": "https://source.unsplash.com/random/80x80",
-                            "name": "Usuario de teste 3",
-                            "id": 32
-                        },
-                        {
-                            "avatar_url": "https://source.unsplash.com/random/80x80",
-                            "name": "Usuario de teste 3",
-                            "id": 28
-                        },
-                        {
-                            "avatar_url": "https://source.unsplash.com/random/80x80",
-                            "name": "Usuario de teste 3",
-                            "id": 45
+                            "username": "lcleite"
+                            "fist_name": "Leandro",
+                            "last_name": "Leite"
                         }
-                    ],
+                    ]
+                }
+            }
+
+
+## Pesquisa de postagem [/search/post?q={query}&page={page}]
+### Get Result [GET]
++ Parameters
+    + query: "Classe abstrata" (required, String) - Query for search.
+    + page: 1 (required, Number) - Page number of search result.
+
++ Request (application/json)
+    + Headers
+
+            Authorization: Bearer <user_key_auth> (required, String) - OAuth2.0 Bearer Token authorization
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "status": true,
+                "result":
+                {
+                    "page": "1",
+                    "posts":[
+                      {
+                        "id": 3,
+                        "author": {
+                          "username": "vini",
+                          "first_name": "Vinicius",
+                          "last_name": "Gusmão",
+                          "avatar_url": null
+                        },
+                        "title": "Title 3",
+                        "date": "2018-02-03T14:21:43.807525Z",
+                        "edited_at": null,
+                        "description": "Description 3",
+                        "image_url": null,
+                        "views": 1,
+                        "likes": 0,
+                        "tags": []
+                        },
+                        {
+                        "id": 2,
+                        "author": {
+                          "username": "renan",
+                          "first_name": "Renan",
+                          "last_name": "Hozumi",
+                          "avatar_url": null
+                        },
+                        "title": "Title 2",
+                        "date": "2018-02-03T14:21:43.807525Z",
+                        "edited_at": null,
+                        "description": "Description 2",
+                        "image_url": null,
+                        "views": 1,
+                        "likes": 2,
+                        "tags": []
+                      }
+                    ]
+                }
+            }
+
+
+## Pesquisa de tag [/search/tag?q={query}&page={page}]
+### Get Result [GET]
++ Parameters
+    + query: "Java" (required, String) - Query for search.
+    + page: 1 (required, Number) - Page number of search result.
+
++ Request (application/json)
+    + Headers
+
+            Authorization: Bearer <user_key_auth> (required, String) - OAuth2.0 Bearer Token authorization
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "status": true,
+                "result":
+                {
+                    "page": "1",
                     "tags":[
                         {
                             "name": "Java",
                             "id": 23
-                        }, 
+                        },
                         {
                             "name": "JavaScript",
                             "id": 34
-                        }, 
+                        },
                         {
                             "name": "JavaServer Faces",
                             "id": 65
-                        }, 
+                        },
                         {
                             "name": "Java Reflection",
                             "id": 2
                         }
-                    ],
-                    "posts":[
-                        {
-                            "id": 23,
-                            "title": "Titulo do Artigo 0",
-                            "subtitle": "Esse é um subtitulo",
-                            "favorites": 4,
-                            "likes": 10,
-                            "image_url": "https://source.unsplash.com/random/100x100",
-                            "publishDate": 1519495297000,
-                            "editedDate": 1519495297000,
-                            "owner": {
-                                "avatar_url": "https://source.unsplash.com/random/80x80",
-                                "name": "Usuario de teste",
-                                "id": 76
-                            }
-                        },
-                        {
-                            "id": 20,
-                            "title": "Titulo do Artigo 2",
-                            "subtitle": "Esse é um subtitulo",
-                            "favorites": 2,
-                            "likes": 20,
-                            "image_url": "https://source.unsplash.com/random/100x100",
-                            "publishDate": 1519495297000,
-                            "editedDate": 1519495297000,
-                            "owner": {
-                                "avatar_url": "https://source.unsplash.com/random/80x80",
-                                "name": "Usuario de teste 3",
-                                "id": 43
-                            }
-                        },
-                        {
-                            "id": 2,
-                            "title": "Titulo do Artigo 3",
-                            "subtitle": "Esse é um subtitulo",
-                            "image_url": "https://source.unsplash.com/random/100x100",
-                            "favorites": 10,
-                            "likes": 40,
-                            "publishDate": 1519495297000,
-                            "editedDate": 1519495297000,
-                            "owner": {
-                                "avatar_url": "https://source.unsplash.com/random/80x80",
-                                "name": "Usuario de teste 2",
-                                "id": 56
-                            }
-                        },
-                        {
-                            "id": 32,
-                            "title": "Titulo do Artigo 4",
-                            "subtitle": "Esse é um subtitulo",
-                            "image_url": "https://source.unsplash.com/random/100x100",
-                            "favorites": 10,
-                            "likes": 4,
-                            "publishDate": 1519495297000,
-                            "editedDate": 1519495297000,
-                            "owner": {
-                                "avatar_url": "https://source.unsplash.com/random/80x80",
-                                "name": "Usuario de teste 3",
-                                "id": 43
-                            }
-                        },
-                        {
-                            "id": 33,
-                            "title": "Titulo do Artigo 0",
-                            "subtitle": "Esse é um subtitulo",
-                            "favorites": 6,
-                            "likes": 10,
-                            "image_url": "https://source.unsplash.com/random/100x100",
-                            "publishDate": 1519495297000,
-                            "editedDate": 1519495297000,
-                            "owner": {
-                                "avatar_url": "https://source.unsplash.com/random/80x80",
-                                "name": "Usuario de teste",
-                                "id": 76
-                            }
-                        },
-                        {
-                            "id": 43,
-                            "title": "Titulo do Artigo 2",
-                            "subtitle": "Esse é um subtitulo",
-                            "favorites": 4,
-                            "likes": 10,
-                            "image_url": "https://source.unsplash.com/random/100x100",
-                            "publishDate": 1519495297000,
-                            "editedDate": 1519495297000,
-                            "owner": {
-                                "avatar_url": "https://source.unsplash.com/random/80x80",
-                                "name": "Usuario de teste 3",
-                                "id": 43
-                            }
-                        },
-                        {
-                            "id": 56,
-                            "title": "Titulo do Artigo 3",
-                            "subtitle": "Esse é um subtitulo",
-                            "favorites": 8,
-                            "likes": 14,
-                            "image_url": "https://source.unsplash.com/random/100x100",
-                            "publishDate": 1519495297000,
-                            "editedDate": 1519495297000,
-                            "owner": {
-                                "avatar_url": "https://source.unsplash.com/random/80x80",
-                                "name": "Usuario de teste 2",
-                                "id": 56
-                            }
-                        },
-                        {
-                            "id": 89,
-                            "title": "Titulo do Artigo 4",
-                            "subtitle": "Esse é um subtitulo",
-                            "favorites": 12,
-                            "likes": 10,
-                            "image_url": "https://source.unsplash.com/random/100x100",
-                            "publishDate": 1519495297000,
-                            "editedDate": 1519495297000,
-                            "owner": {
-                                "avatar_url": "https://source.unsplash.com/random/80x80",
-                                "name": "Usuario de teste 3",
-                                "id": 43
-                            }
-                        }
                     ]
                 }
+            }
+
+## Pesquisa geral [/search/all?q={query}]
+### Get Result [GET]
++ Parameters
+    + query: "Hello" (required, String) - Query for search.
+
++ Request (application/json)
+    + Headers
+
+            Authorization: Bearer <user_key_auth> (required, String) - OAuth2.0 Bearer Token authorization
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+              "status": true,
+              "result": {
+                  "users":[
+                      {
+                          "avatar_url": "https://source.unsplash.com/random/80x80",
+                          "username": "lcleite"
+                          "fist_name": "Leandro",
+                          "last_name": "Leite"
+                      },
+                      {
+                          "avatar_url": "https://source.unsplash.com/random/80x80",
+                          "username": "lcleite"
+                          "fist_name": "Leandro",
+                          "last_name": "Leite"
+                      }
+                  ],
+                  "posts":[
+                    {
+                      "id": 3,
+                      "author": {
+                        "username": "vini",
+                        "first_name": "Vinicius",
+                        "last_name": "Gusmão",
+                        "avatar_url": null
+                      },
+                      "title": "Title 3",
+                      "date": "2018-02-03T14:21:43.807525Z",
+                      "edited_at": null,
+                      "description": "Description 3",
+                      "image_url": null,
+                      "views": 1,
+                      "likes": 0,
+                      "tags": []
+                    }
+                  ],
+                  "tags":[
+                      {
+                          "name": "Java",
+                          "id": 23
+                      },
+                      {
+                          "name": "JavaScript",
+                          "id": 34
+                      }
+                  ]
+              }
             }
