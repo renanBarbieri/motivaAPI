@@ -460,6 +460,53 @@ Edita uma postagem
                 }
             }
 
+## Actions of post [/post/{username}/{post_id}]
+### Get Post [GET]
+Recebe uma postagem
+
++ Request (application/json)
+    + Headers
+
+            Authorization: Bearer <user_key_auth> (required, string) - OAuth2.0 Bearer Token authorization
+    
+    + Parameters
+        + username: lcleite (required, string) - Username of a post author.
+        + post_id: 1 (required, number) - ID of a post.
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "status": true,
+                "result": {
+                    "post": {
+                        "id": 7,
+                        "tags": [
+                            {
+                                "id": 1,
+                                "name": "Tag1"
+                            }
+                        ],
+                        "author": {
+                            "username": "lcleite",
+                            "first_name": "Leandro",
+                            "last_name": "Leite",
+                            "avatar_url": "/media/lcleite_avatar.jpg"
+                        },
+                        "title": "My test post",
+                        "date": "2018-04-16T22:14:27.194962",
+                        "edited_at": null,
+                        "description": "Bla bla bla",
+                        "image_url": null,
+                        "views": 0,
+                        "likes": 0,
+                        "text": "Ble ble eeeeee iiii ioooo uuuuuu",
+                        "reading_time": 0.02,
+                        "who_liked": []
+                    }
+                }
+            }
 
 ## Upload de imagem de uma postagem [/upload/post_image]
 ### Upload Post Image [POST]
