@@ -254,10 +254,53 @@ Faz upload da imagem de perfil de um usuário
                     "filename": "/media/<file_name>.jpg"
                 }
             }
-
-
+            
 # Group Topics
 Ações relacionadas aos topicos
+## Topicos [/tag]
+### Get Tags [GET]
+
++ Request (form-data)
+    + Headers
+
+            Authorization: Bearer <user_key_auth> (required, String) - OAuth2.0 Bearer Token authorization
+
++ Response 201 (application/json)
+
+    + Body
+
+            {
+              "status": true,
+              "result": {
+                    "tags": [
+                        {   
+                            "id": 1,
+                            "name": "Swift"
+                        },
+                        {   
+                            "id": 1,
+                            "name": "Android"
+                        },
+                        {   
+                            "id": 1,
+                            "name": "React"
+                        },
+                        {   
+                            "id": 1,
+                            "name": "Comp2"
+                        },
+                        {   
+                            "id": 1,
+                            "name": "Computação II"
+                        },
+                        {   
+                            "id": 1,
+                            "name": "Vinícius"
+                        }
+                    ]
+                }
+            }
+
 ## Posts de um tópico [/tag/{tag_name}/posts?limit={limit}&page={page}]
 ### Get Posts [GET]
 
@@ -360,10 +403,10 @@ Ações relacionadas aos posts
 Métodos do post
 ### Create Post [POST]
 + Attributes
-        + title: "My test post" (required, string) - Title of a post.
-        + description: "Bla bla bla" (required, string) - Description of a post.
-        + text: "Ble ble eeeeee iiii ioooo uuuuuu" (required, string) - Text of a post.
-        + tags: ["Tag1"] (required, string array) - Tags of a post.
+    + title: "My test post" (required, string) - Title of a post.
+    + description: "Bla bla bla" (required, string) - Description of a post.
+    + text: "Ble ble eeeeee iiii ioooo uuuuuu" (required, string) - Text of a post.
+    + tags: ["Tag1"] (required, array) - Tags of a post.
 
 + Request (form-data)
     + Headers
