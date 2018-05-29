@@ -2,7 +2,7 @@ FORMAT: 1A
 HOST: http://polls.apiblueprint.org/
 # Motiva
 
-Descrição da API do 
+Descrição da API do
 
 ## Login [/login]
 ### Login [POST]
@@ -11,9 +11,9 @@ Realiza login através de nome de usuário e senha
 + Attributes
     + username: renan (required, string) - Username of a user.
     + password: 123456 (required, string) - Password of a user.
-    
+
 + Request (application/json)
-  
+
 + Response 200 (application/json)
 
     + Body
@@ -131,7 +131,7 @@ Solicita os dados do usuário logado
                         "starred_posts":
                         [
                             {
-                                
+
                             }
                         ]
                     }
@@ -146,9 +146,9 @@ Solicita os dados do perfil de um usuário
 
 + Request (application/json)
     + Headers
-            
+
             Authorization: Bearer <user_key_auth> (required, String) - OAuth2.0 Bearer Token authorization
-            
+
     + Parameters
         + username: "renan" (required, String) - Username of some user.
 
@@ -158,7 +158,7 @@ Solicita os dados do perfil de um usuário
 
             {
                 "status": true,
-                "result": 
+                "result":
                 {
                     "user":
                     {
@@ -171,32 +171,32 @@ Solicita os dados do perfil de um usuário
                         "facebook": "@renanhb",
                         "github": "@renanBarbieri",
                         "linkedin": "string",
-                        "level": 
+                        "level":
                         {
                             "id": 3,
                             "name": "Profissional",
                             "description": "Nível Profissional"
                         },
-                        "achievements": 
+                        "achievements":
                         [
                             {
                                 "id": 20,
                                 "image_url": "https://source.unsplash.com/random/80x80",
                                 "name": "Coração de ouro",
                                 "description": "bla bla bla wiskas sache"
-                            }, 
+                            },
                             {
                                 "id": 30,
                                 "image_url": "https://source.unsplash.com/random/80x80",
                                 "name": "Coração de prata",
                                 "description": "bla bla bla wiskas sache"
-                            }, 
+                            },
                             {
                                 "id": 32,
                                 "image_url": "https://source.unsplash.com/random/80x80",
                                 "name": "Coração de bronze",
                                 "description": "bla bla bla wiskas sache"
-                            }, 
+                            },
                             {
                                 "id": 18,
                                 "image_url": "https://source.unsplash.com/random/80x80",
@@ -204,24 +204,24 @@ Solicita os dados do perfil de um usuário
                                 "description": "bla bla bla wiskas sache"
                             }
                         ],
-                        "interests": 
+                        "interests":
                         [
                             {
                                 "name": "Swift",
                                 "id": 23
-                            }, 
+                            },
                             {
                                 "name": "Python",
                                 "id": 34
-                            }, 
+                            },
                             {
                                 "name": "Objective-C",
                                 "id": 65
-                            }, 
+                            },
                             {
                                 "name": "Ruby",
                                 "id": 2
-                            }, 
+                            },
                             {
                                 "name": "Flutter",
                                 "id": 3
@@ -230,7 +230,7 @@ Solicita os dados do perfil de um usuário
                     }
                 }
             }
-            
+
 ## Upload de avatar do usuário [/upload/user_avatar]
 ### Upload User Avatar [POST]
 Faz upload da imagem de perfil de um usuário
@@ -254,7 +254,7 @@ Faz upload da imagem de perfil de um usuário
                     "filename": "/media/<file_name>.jpg"
                 }
             }
-            
+
 # Group Topics
 Ações relacionadas aos topicos
 ## Topicos [/tag]
@@ -273,27 +273,27 @@ Ações relacionadas aos topicos
               "status": true,
               "result": {
                     "tags": [
-                        {   
+                        {
                             "id": 1,
                             "name": "Swift"
                         },
-                        {   
+                        {
                             "id": 1,
                             "name": "Android"
                         },
-                        {   
+                        {
                             "id": 1,
                             "name": "React"
                         },
-                        {   
+                        {
                             "id": 1,
                             "name": "Comp2"
                         },
-                        {   
+                        {
                             "id": 1,
                             "name": "Computação II"
                         },
-                        {   
+                        {
                             "id": 1,
                             "name": "Vinícius"
                         }
@@ -316,7 +316,7 @@ Solicita os posts de uma tag
 
 + Request (application/json)
     + Headers
-    
+
             Authorization: Bearer <user_key_auth> (required, String) - OAuth2.0 Bearer Token authorization
 
 + Response 200 (application/json)
@@ -423,7 +423,7 @@ Métodos do post
                     "post": {
                         "id": 7,
                         "tags": [
-                            {   
+                            {
                                 "id": 1,
                                 "name": "Tag1"
                             }
@@ -447,7 +447,7 @@ Métodos do post
                     }
                 }
             }
-            
+
 ### Edit Post [PUT]
 Edita uma postagem
 
@@ -506,7 +506,7 @@ Recebe uma postagem
     + Headers
 
             Authorization: Bearer <user_key_auth> (required, string) - OAuth2.0 Bearer Token authorization
-    
+
     + Parameters
         + username: lcleite (required, string) - Username of a post author.
         + post_id: 1 (required, number) - ID of a post.
@@ -545,7 +545,7 @@ Recebe uma postagem
                     }
                 }
             }
-            
+
 ## Comment [/post/<username>/<post_id>/comment]
 Ações relacionadas a comentários de uma postagem
 
@@ -560,7 +560,7 @@ Ações relacionadas a comentários de uma postagem
 
     + Parameters
         + username: lcleite (required, string) - Username of a post author.
-        + post_id: 1 (required, number) - ID of a post.                  
+        + post_id: 1 (required, number) - ID of a post.
 
 + Response 201 (application/json)
 
@@ -571,7 +571,7 @@ Ações relacionadas a comentários de uma postagem
                 "result": {
                 "message": "Comentário inserido com sucesso"
             }
-            
+
 ## List Comment [/post/<username>/<post_id>/comment?page=<page_number>]
 ### Get list of comments [GET]
 Lista os comentários de uma postagem
@@ -659,11 +659,10 @@ Faz upload da imagem de imagem de uma postagem
 
 + Attributes
         + image_file: [File] (required, File) - File of a post image.
-        + post_id: "1" (required, Text) - ID of a post
-        
+
 + Request (form-data)
     + Headers
-        
+
             Authorization: Bearer <user_key_auth> (required, String) - OAuth2.0 Bearer Token authorization
 
 + Response 200 (application/json)
@@ -674,7 +673,7 @@ Faz upload da imagem de imagem de uma postagem
                 "status": true,
                 "result": {
                     "message": "Upload realizado com sucesso",
-                    "filename": "/media/<file_name>.jpg"
+                    "filename": "media/<file_name>.jpg"
                 }
             }
 
